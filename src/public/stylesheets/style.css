@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(143, 188, 238);
+}
+#cont {
+    margin: 200px auto;
+    padding: 30px;
+    width: 500px;
+    height: 400px;
+    border-radius: 50px;
+    background-color: rgb(110, 110, 240);
+}
+
+.info {
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin: 5px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+h4 {
+    margin: 5px;
+    padding: 0;
+    margin-left: 50px;
+    font-size: 25px;
+}
