@@ -1,183 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaClean | Mantenimiento de Piscinas y Spa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<%= '/public/stylesheets/style.css' %>">
+    <%- include ('partials/head') %>
 </head>
 <body>
     <!-- Barra de navegación -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#inicio" class="logo">Aqua<span>Clean</span></a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-list">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+    <%- include('partials/navbar') %>
 
     <!-- Sección Hero -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Mantenimiento Profesional de Piscinas y Spa</h1>
-                <p>Disfruta de tu piscina todo el año con nuestros servicios especializados</p>
-                <a href="#contacto" class="btn">¡Solicita un diagnóstico gratuito!</a>
-            </div>
-        </div>
-    </section>
+    <%- include('partials/hero') %>
 
     <!-- Sección Servicios -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-water"></i>
-                    <h3>Limpieza y Tratamiento</h3>
-                    <p>Mantenimiento químico del agua, limpieza de fondos y paredes, control de pH y cloro.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Reparaciones</h3>
-                    <p>Reparación de filtros, bombas, fugas y problemas eléctricos en sistemas de piscinas.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-thermometer-half"></i>
-                    <h3>Climatización</h3>
-                    <p>Instalación y mantenimiento de sistemas de calefacción para spas y piscinas.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Mantenimiento Preventivo</h3>
-                    <p>Programas de mantenimiento periódico para evitar problemas costosos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <%- include('partials/services') %>
 
     <!-- Sección Beneficios -->
-    <section id="beneficios" class="benefits">
-        <div class="container">
-            <div class="benefits-content">
-                <h2>¿Por qué elegirnos?</h2>
-                <ul class="benefits-list">
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span>Expertos certificados en tratamiento de agua</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span>Productos de calidad que no dañan tu piel ni el medio ambiente</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span>Precios competitivos y paquetes personalizados</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span>Respuesta rápida ante emergencias</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="benefits-image">
-                <img src="https://nautilusbr.com/dev/wp-content/uploads/Depositphotos208109670s2019-1.jpeg">
-            </div>
-        </div>
-    </section>
+    <%- include('partials/benefits') %>
 
     <!-- Sección Galería -->
-    <section id="galeria" class="gallery">
-        <div class="container">
-            <h2>Nuestro Trabajo</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://s1.eestatic.com/2022/07/14/como/687691935_225819252_1706x960.jpg" alt="Piscina limpia">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://img.freepik.com/fotos-premium/piscina-fondo-hd-8k-fondo-pantalla-imagen-archivo-fotografico_853645-23371.jpg" alt="Técnico midiendo químicos">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://arkpad.com.br/wp-content/uploads/2020/04/area-de-lazer-com-piscina-31.jpg" alt="Spa reluciente">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://www.limpapiscinas.com.br/wp-content/uploads/2020/10/Tratamento-de-Piscina-em-Moema.jpg" alt="Equipo de limpieza">
-                </div>
-            </div>
-        </div>
-    </section>
+    <%- include('partials/gallery') %>
 
     <!-- Sección Contacto -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2>Contáctanos</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61575330340889"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/aquaclean_7/"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Teléfono">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Mensaje" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <%- include('partials/contact') %>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#inicio" class="logo">Aqua<span>Clean</span></a>
-                    <p>Expertos en mantenimiento de piscinas y spa</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-hours">
-                    <h3>Horario</h3>
-                    <p>Lunes - Viernes: 8:00 am - 6:00 pm</p>
-                    <p>Sábado: 9:00 am - 2:00 pm</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 AquaClean. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <%- include('partials/footer') %>
 
     <script src="/javascripts/script.js"></script>
 </body>
