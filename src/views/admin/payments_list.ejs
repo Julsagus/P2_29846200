@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagos Recibidos</title>
+  <link rel="stylesheet" href='/stylesheets/style.css'>
+  <link rel="stylesheet" href='/stylesheets/payments_list.css'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <%- include('../partials/navbar') %>
+  
+  <h1>Lista de Pagos Recibidos</h1>
+
+  <div class="container mt-4">
+    <% if (payments.length === 0) { %>
+      <div class="no-data">
+        <p>No hay pagos registrados aún</p>
+      </div>
+    <% } else { %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Plan</th>
+            <th>Email</th>
+            <th>Titular</th>
+            <th>Monto</th>
+            <th>Moneda</th>
+            <th>Fecha</th>
+            <th>IP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% payments.forEach(payment => { %>
+            <tr>
+              <td data-label="ID"><%= payment.id %></td>
+              <td data-label="Plan"><%= payment.plan %></td>
+              <td data-label="Email"><%= payment.email %></td>
+              <td data-label="Titular"><%= payment.cardholder %></td>
+              <td data-label="Monto"><%= payment.amount.toFixed(2) %></td>
+              <td data-label="Moneda"><%= payment.currency %></td>
+              <td data-label="Fecha"><%= new Date(payment.created_at).toLocaleString('es-ES') %></td>
+              <td data-label="IP"><%= payment.ip_address %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+
+  <%- include('../partials/footer') %>
+
+  <script src='/javascripts/script'></script>
+</body>
+</html>

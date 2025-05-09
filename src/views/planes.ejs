@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>AquaClean | Nuestros Planes</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    
+    //Barra de navegación
+    
+    <%- include('partials/navbar') %>
+
+    <section id="planes" class="plans">
+        <div class="container">
+            <h2>Nuestros Planes de Mantenimiento</h2>
+            <p class="subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--text-light);">
+                Elige el plan que mejor se adapte a tus necesidades y disfruta de tu piscina o spa sin preocupaciones
+            </p>
+            
+            <div class="plans-grid">
+                <!-- Plan 1 -->
+                <div class="plan-card">
+                    <div class="plan-recommended">RECOMENDADO</div>
+                    <div class="plan-header">
+                        <h3 class="plan-title">Mantenimiento Total</h3>
+                        <div class="plan-price">$299<span>/mes</span></div>
+                        <p>Todos los servicios esenciales + regalo</p>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-features">
+                            <li>Limpieza y tratamiento químico semanal</li>
+                            <li>Reparaciones básicas incluidas</li>
+                            <li>Ajuste de sistemas de climatización</li>
+                            <li>Asesoría 24/7 para emergencias</li>
+                        </ul>
+                        
+                        <div class="plan-bonus">
+                            <i class="fas fa-gift"></i>
+                            <strong>REGALO:</strong> Mantenimiento preventivo GRATIS por 1 mes (1 visita técnica semanal)
+                        </div>
+                        
+                        <a href="/form_pay" class="btn plan-btn">Contratar</a>
+                    </div>
+                </div>
+                
+                <!-- Plan 2 -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Combo Especial</h3>
+                        <div class="plan-price">$199<span>/mes</span></div>
+                        <p>Elige 2 servicios + preventivo gratis</p>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-features">
+                            <li><strong>Elige 2 servicios:</strong></li>
+                            <li>Limpieza + Reparaciones</li>
+                            <li>Limpieza + Climatización</li>
+                            <li>Reparaciones + Climatización</li>
+                        </ul>
+                        
+                        <div class="plan-bonus">
+                            <i class="fas fa-gift"></i>
+                            <strong>REGALO:</strong> Mantenimiento preventivo GRATIS por 15 días (1 visita técnica semanal)
+                        </div>
+                        
+                        <a href="/form_pay" class="btn plan-btn">Personalizar</a>
+                    </div>
+                </div>
+                
+                <!-- Plan 3 -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Básico + Preventivo</h3>
+                        <div class="plan-price">$129<span>/mes</span></div>
+                        <p>Servicio específico + regalo</p>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-features">
+                            <li><strong>Elige 1 servicio:</strong></li>
+                            <li>Limpieza y tratamiento</li>
+                            <li>Reparaciones básicas</li>
+                            <li>Climatización</li>
+                        </ul>
+                        
+                        <div class="plan-bonus">
+                            <i class="fas fa-gift"></i>
+                            <strong>REGALO:</strong> Mantenimiento preventivo GRATIS por 15 días (1 visita técnica semanal)
+                        </div>
+                        
+                        <a href="/form_pay" class="btn plan-btn">Elegir Servicio</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="color: var(--text-light); margin-bottom: 20px;">¿Necesitas algo más personalizado?</p>
+                <a href="/contact" class="btn" style="background-color: var(--dark-color);">Solicitar Plan Personalizado</a>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

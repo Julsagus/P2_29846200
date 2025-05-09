@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>AquaClean | Formulario de pago</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <section class="payment-section">
+        <div class="payment-container">
+            <h2 class="payment-title">Pago Seguro</h2>
+            <form class="payment-form" action="/payment/add" method="POST">
+                <!-- Selección de plan -->
+                <div class="payment-group">
+                    <label for="plan">Selecciona tu plan</label>
+                    <select id="plan" name="plan" required>
+                        <option value="" disabled selected>Elige un plan</option>
+                        <option value="mantenimiento_total">Mantenimiento Total - $299/mes</option>
+                        <option value="combo_especial">Combo Especial - $199/mes</option>
+                        <option value="basico_preventivo">Básico + Preventivo - $129/mes</option>
+                    </select>
+                </div>
+            
+                <!-- Correo electrónico -->
+                <div class="payment-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            
+                <!-- Nombre del titular -->
+                <div class="payment-group">
+                    <label for="cardholder">Nombre del titular</label>
+                    <input type="text" id="cardholder" name="cardholder" required>
+                </div>
+            
+                <!-- Número de tarjeta -->
+                <div class="payment-group">
+                    <label for="cardnumber">Número de tarjeta</label>
+                    <input type="number" id="cardnumber" name="cardnumber" placeholder="0000 0000 0000 0000" required>
+                </div>
+            
+                <!-- Fecha de expiración y CVV -->
+                <div class="payment-row">
+                    <div class="payment-col small">
+                        <div class="payment-group">
+                            <label>Fecha de expiración</label>
+                            <div class="payment-select-group">
+                                <select name="exp_month" required>
+                                    <option value="" disabled selected>MM</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <select name="exp_year" required>
+                                    <option value="" disabled selected>AA</option>
+                                    <option value="2024">24</option>
+                                    <option value="2025">25</option>
+                                    <option value="2026">26</option>
+                                    <option value="2027">27</option>
+                                    <option value="2028">28</option>
+                                    <option value="2029">29</option>
+                                    <option value="2030">30</option>
+                                    <option value="2031">31</option>
+                                    <option value="2032">32</option>
+                                    <option value="2033">33</option>
+                                    <option value="2034">34</option>
+                                    <option value="2035">35</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="payment-col xsmall">
+                        <div class="payment-group">
+                            <label for="cvv">CVV/CVC</label>
+                            <input type="number" id="cvv" name="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Monto y moneda -->
+                <div class="payment-row">
+                    <div class="payment-col small">
+                        <div class="payment-group">
+                            <label for="amount">Monto a cancelar</label>
+                            <input type="number" id="amount" name="amount" min="1" required>
+                        </div>
+                    </div>
+            
+                    <div class="payment-col small">
+                        <div class="payment-group">
+                            <label for="currency">Moneda</label>
+                            <select id="currency" name="currency" required>
+                                <option value="USD">USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="MXN">MXN ($)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            
+                <button type="submit" class="payment-btn">
+                    Realizar Pago
+                </button>
+            </form>
+        </div>
+    </section>
+    <%- include('partials/footer') %>
+</body>
+</html>

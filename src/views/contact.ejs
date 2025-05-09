@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AquaClean | Contacto</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+
+    <%- include('partials/navbar') %>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <form class="contact-form" action="/contact/add" method="POST">
+                    <h2>Contáctanos</h2>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="name">Nombres:</label><br>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="comment">Comentario:</label><br>
+                        <textarea id="comment" name="comment" required></textarea>
+                    </div>
+            
+                    <button type="submit" id="form-btn" class="btn">Enviar</button>
+                </form>
+
+                <h2>Encuéntranos en nuestras redes sociales</h2>
+
+                <div class="contact-info">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61575330340889"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/aquaclean_7/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!-- src/views/admin/contacts.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contactos Registrados</title>
+  <link rel="stylesheet" href='/stylesheets/style.css'>
+  <link rel="stylesheet" href='/stylesheets/contacts_list.css'>
+</head>
+<body>
+
+  <%- include('../partials/navbar') %>
+
+  <h1>Contactos Registrados</h1>
+  
+  <% if (contacts.length > 0) { %>
+    <div class="table-container">
+      <table class="contacts-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Comentario</th>
+            <th>IP</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% contacts.forEach(contact => { %>
+            <tr>
+              <td data-label="ID"><%= contact.id %></td>
+              <td data-label="Nombre"><%= contact.name %></td>
+              <td data-label="Email"><%= contact.email %></td>
+              <td data-label="Comentario" class="comment-cell"><%= contact.comment %></td>
+              <td data-label="IP"><%= contact.ip_address %></td>
+              <td data-label="Fecha" class="date-cell"><%= new Date(contact.created_at).toLocaleString() %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  <% } else { %>
+    <div class="no-contacts">
+      <p>No hay contactos registrados aún.</p>
+    </div>
+  <% } %>
+
+  <%- include('../partials/footer') %>
+
+  <script src='/javascripts/script'></script>
+</body>
+</html>

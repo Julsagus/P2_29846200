@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/confirm.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>¡Gracias por contactarnos!</title>
+</head>
+<body>
+
+    <%- include('partials/navbar') %>
+
+  <div class="containersend">
+    <section class="confirmation-section">
+      <div class="confirmation-card">
+        <div class="confirmation-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <h1 class="confirmation-title">¡Mensaje Enviado!</h1>
+        <p class="confirmation-message">
+          Gracias por contactarnos. Hemos recibido tu mensaje correctamente y nos pondremos en contacto contigo muy pronto.
+        </p>
+        <a href="/" class="btn">Volver al Inicio</a>
+      </div>
+    </section>
+  </div>
+  
+  <%- include('partials/footer') %>
+
+</body>
+</html>

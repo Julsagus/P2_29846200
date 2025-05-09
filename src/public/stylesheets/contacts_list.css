@@ -1,0 +1,164 @@
+:root {
+    --primary-color: #00a8e8;
+    --secondary-color: #0077b6;
+    --dark-color: #003554;
+    --light-color: #f8f9fa;
+    --accent-color: #ff9e00;
+    --text-color: #333;
+    --text-light: #777;
+    --white: #fff;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+  }
+
+  h1 {
+    color: var(--dark-color);
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .contacts-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background-color: var(--white);
+  }
+
+  .contacts-table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .contacts-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: top;
+  }
+
+  .contacts-table tr:nth-child(even) {
+    background-color: var(--light-color);
+  }
+
+  .contacts-table tr:hover {
+    background-color: rgba(0, 168, 232, 0.1);
+  }
+
+  .comment-cell {
+    max-width: 300px;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .no-contacts {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    color: var(--text-light);
+  }
+
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .contacts-table {
+      display: flexbox;
+      min-width: 300px;
+    }
+    
+    .contacts-table thead {
+      display: none;
+    }
+    
+    .contacts-table tr {
+      display: block;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .contacts-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .contacts-table td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-right: 15px;
+      flex: 0 0 120px;
+    }
+    
+    .contacts-table td:last-child {
+      border-bottom: none;
+    }
+    
+    .comment-cell {
+      max-width: 100%;
+    }
+  }
+
+  .date-cell {
+    white-space: nowrap;
+  }
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  margin: 0;
+}
+
+.main-content {
+  flex: 1;
+  margin-top: 80px; 
+}
+
+footer {
+  background-color: var(--dark-color);
+  color: var(--white);
+  padding: 20px 0;
+  text-align: left;
+  margin-top: auto; 
+}
+
+.table-container {
+  margin: 30px;
+}

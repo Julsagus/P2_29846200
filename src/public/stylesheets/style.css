@@ -52,6 +52,7 @@ img {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 12px 30px;
+    margin: 10px;
     border-radius: 50px;
     font-weight: 500;
     transition: var(--transition);
@@ -351,13 +352,42 @@ h2::after {
 
 /* Contacto */
 .contact {
-    background-color: var(--white);
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--dark-color);
+    position: relative;
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
 }
 
 .contact-content {
-    display: flex;
-    gap: 50px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    width: 100%;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .contact-info, .contact-form {
@@ -383,7 +413,7 @@ h2::after {
     padding: 10px;
     text-align: center;
     gap: 15px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .social-links a {
@@ -391,8 +421,8 @@ h2::after {
     align-items: center;
     justify-content: center;
     margin: 10px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: var(--primary-color);
     color: var(--white);
     border-radius: 50%;
@@ -405,29 +435,30 @@ h2::after {
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
+    width: 100%; 
 }
-
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark-color);
+}
 .form-group input,
 .form-group textarea {
-    width: 100%;
+    width: 100%; 
     padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
     font-family: inherit;
     transition: var(--transition);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 168, 232, 0.2);
-}
-
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
+#form-btn {
+    width: 100%; 
+    margin: 10px 0 0 0; 
+    padding: 15px; 
+    font-size: 1.1rem;
 }
 
 /* Footer */
@@ -435,6 +466,9 @@ h2::after {
     background-color: var(--dark-color);
     color: var(--white);
     padding: 60px 0 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-content {
@@ -585,5 +619,255 @@ h2::after {
     
     .btn {
         padding: 10px 25px;
+    }
+}
+
+.plans {
+    background-color: var(--light-color);
+    padding: 80px 0;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.plan-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.plan-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 25px;
+    text-align: center;
+}
+
+.plan-card:nth-child(1) .plan-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+}
+
+.plan-card:nth-child(2) .plan-header {
+    background: linear-gradient(135deg, var(--primary-color), #0096c7);
+}
+
+.plan-card:nth-child(3) .plan-header {
+    background: linear-gradient(135deg, var(--primary-color), #00b4d8);
+}
+
+.plan-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.plan-price span {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.plan-body {
+    padding: 30px;
+}
+
+.plan-features {
+    margin-bottom: 30px;
+}
+
+.plan-features li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.plan-features li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.plan-bonus {
+    background-color: rgba(0, 168, 232, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.plan-bonus i {
+    color: var(--accent-color);
+    margin-right: 5px;
+}
+
+.plan-btn {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.plan-recommended {
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(255, 158, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos específicos para el formulario de pago */
+.payment-section {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.payment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.payment-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--dark-color);
+    position: relative;
+}
+
+.payment-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.payment-form {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.payment-group {
+    margin-bottom: 20px;
+}
+
+.payment-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.payment-group input,
+.payment-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+}
+
+.payment-group input:focus,
+.payment-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 168, 232, 0.2);
+}
+
+.payment-row {
+    display: flex;
+    gap: 20px;
+}
+
+.payment-col {
+    flex: 1;
+}
+
+.payment-col.small {
+    flex: 0.5;
+}
+
+.payment-col.xsmall {
+    flex: 0.3;
+}
+
+.payment-select-group {
+    display: flex;
+    gap: 10px;
+}
+
+.payment-select-group select {
+    flex: 1;
+}
+
+.payment-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.payment-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .payment-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .payment-col,
+    .payment-col.small,
+    .payment-col.xsmall {
+        flex: 1;
     }
 }
