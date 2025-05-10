@@ -6,11 +6,8 @@
       "rootDir": "./src",
       "strict": true,
       "esModuleInterop": true,
-      "baseUrl": "./src",
-      "paths": {
-        "@/*": ["*"]
-      }
+      "baseUrl": "./src"
     },
     "include": ["src/**/*"],
-    "exclude": ["node_modules", "src/views/**/*"]
+    "exclude": ["node_modules"]
   }

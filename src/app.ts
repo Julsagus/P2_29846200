@@ -10,6 +10,8 @@ app.set('view engine', 'ejs');
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 

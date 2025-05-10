@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && copyfiles -u 1 src/views/**/* src/public/**/* dist/",
+    "build": "tsc && cp -r src/views dist/ && cp -r src/public dist/",
     "start": "node dist/bin/www.js",
     "dev": "nodemon --exec ts-node src/bin/www.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
