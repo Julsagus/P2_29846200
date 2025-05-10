@@ -45,6 +45,6 @@ export class PaymentController {
 
   async listPayments(req: Request, res: Response): Promise<void> {
     const payments = await this.model.getAllPayments();
-    res.render('admin/payments_list', { payments });
+    res.render('payments_list', { payments });
   }
 }

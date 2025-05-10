@@ -22,6 +22,6 @@ export class ContactsController {
 
   async index(req: Request, res: Response): Promise<void> {
     const contacts = await this.model.getAllContacts();
-    res.render('admin/contacts_list', { contacts });
+    res.render('contacts_list', { contacts });
   }
 }

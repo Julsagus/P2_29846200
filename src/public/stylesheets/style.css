@@ -111,7 +111,7 @@ h2::after {
 }
 
 .navbar.scrolled {
-    padding: 10px 0;
+    padding: 15px 0;
     background-color: rgba(255, 255, 255, 0.95);
 }
 
@@ -119,12 +119,16 @@ h2::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .logo span {
@@ -133,6 +137,8 @@ h2::after {
 
 .nav-list {
     display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-list li {

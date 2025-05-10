@@ -5,6 +5,7 @@ import { PaymentController } from '../controllers/PaymentController';
 
 const controlerContacts = new ContactsController();
 const controlerPayment = new PaymentController();
+
 router.get('/', (req, res) => {
     res.render('index');
 });

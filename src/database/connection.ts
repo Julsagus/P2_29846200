@@ -15,9 +15,6 @@ export async function getDbConnection(): Promise<Database> {
       driver: sqlite3.Database
     });
     
-    // Habilitar el uso de claves foráneas (opcional)
-    await db.exec('PRAGMA foreign_keys = ON');
-    
     console.log('Conexión a SQLite establecida');
   }
   

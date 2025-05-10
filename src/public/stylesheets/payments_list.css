@@ -1,249 +1,117 @@
-/* Estilos generales */
-:root {
-    --primary-color: #00a8e8;
-    --secondary-color: #0077b6;
-    --dark-color: #003554;
-    --light-color: #f8f9fa;
-    --accent-color: #ff9e00;
-    --text-color: #333;
-    --text-light: #777;
-    --white: #fff;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+h1 {
+  margin-top: 80px;
+  text-align: center;
+}
+
+/* Estilos específicos para la tabla de pagos */
+.table-container {
+  overflow-x: auto;
+  margin: 30px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.payments-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  background-color: var(--white);
+}
+
+.payments-table th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.payments-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
+}
+
+.payments-table tr:nth-child(even) {
+  background-color: var(--light-color);
+}
+
+.payments-table tr:hover {
+  background-color: rgba(0, 168, 232, 0.1);
+}
+
+/* Estilos específicos para celdas */
+.amount-cell {
+  text-align: right;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.date-cell {
+  white-space: nowrap;
+}
+
+.ip-cell {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.no-payments {
+  text-align: center;
+  padding: 30px;
+  background-color: var(--light-color);
+  border-radius: 10px;
+  color: var(--text-light);
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .table-container {
+    margin: 15px;
   }
   
-html, body {
-    height: 100%;
-    margin: 0;
+  .payments-table {
+    display: block;
+    min-width: 300px;
   }
   
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--white);
+  .payments-table thead {
+    display: none;
   }
   
-  .main-content {
-    flex: 1;
-    padding-bottom: 40px;
-  }
-  
-  footer {
-    background-color: var(--dark-color);
-    color: var(--white);
-    padding: 20px 0;
-    text-align: left;
-    margin-top: auto; 
-    width: 100%;
-  }
-  
-  .container.mt-4 {
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  h1 {
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
-  
-  /* Media queries - ajuste para móviles */
-  @media (max-width: 768px) {
-    .main-content {
-      padding-bottom: 20px;
-    }
-    
-    footer {
-      padding: 15px 0;
-    }
-  }
-  
-  h1 {
-    color: var(--dark-color);
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 15px;
-  }
-  
-  h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-color);
-  }
-  
-  .container.mt-4 {
-    max-width: 95%;
-    margin: 0 auto 40px;
-    padding: 0 20px;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
+  .payments-table tr {
+    display: block;
+    margin-bottom: 15px;
     border-radius: 8px;
-    overflow: hidden;
+    box-shadow: var(--box-shadow);
   }
   
-  .table th {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 15px;
-    text-align: left;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-  }
-  
-  .table td {
-    padding: 12px 15px;
+  .payments-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    vertical-align: middle;
+    text-align: right !important;
   }
   
-  .table-striped tbody tr:nth-child(even) {
-    background-color: var(--light-color);
-  }
-  
-  .table-striped tbody tr:hover {
-    background-color: rgba(0, 168, 232, 0.1);
-  }
-  
-  /* Estilos específicos para columnas */
-  .table td:nth-child(1) { /* ID */
-    font-weight: 500;
-    color: var(--secondary-color);
-  }
-  
-  .table td:nth-child(2) { /* Plan */
-    font-weight: 500;
-    color: var(--dark-color);
-  }
-  
-  .table td:nth-child(5) { /* Monto */
+  .payments-table td::before {
+    content: attr(data-label);
     font-weight: 600;
-    color: var(--dark-color);
+    color: var(--primary-color);
+    margin-right: 15px;
+    flex: 0 0 120px;
+    text-align: left;
+  }
+  
+  .payments-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .amount-cell {
     text-align: right;
   }
-  
-  .table td:nth-child(6) { /* Moneda */
-    text-align: center;
-  }
-  
-  .table td:nth-child(7) { /* Fecha */
-    white-space: nowrap;
-    color: var(--text-light);
-    font-size: 0.9rem;
-  }
-  
-  .table td:nth-child(8) { /* IP */
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-  
-  /* Mensaje cuando no hay datos */
-  .no-data {
-    text-align: center;
-    padding: 40px;
-    background-color: var(--light-color);
-    border-radius: 10px;
-    color: var(--text-light);
-    margin: 30px auto;
-    max-width: 600px;
-  }
-  
-  /* Estilos responsivos */
-@media (max-width: 768px) {
-    .container.mt-4 {
-      padding: 0 15px;
-    }
-    
-    .table.table-striped {
-      display: block;
-      width: 100%;
-      overflow-x: hidden;
-    }
-    
-    .table.table-striped thead {
-      display: none;
-    }
-    
-    .table.table-striped tbody {
-      display: block;
-      width: 100%;
-    }
-    
-    .table.table-striped tr {
-      display: block;
-      margin-bottom: 20px;
-      padding: 15px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .table.table-striped td {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-      text-align: right;
-    }
-    
-    .table.table-striped td::before {
-      content: attr(data-label);
-      font-weight: 600;
-      color: #00a8e8;
-      margin-right: 15px;
-      text-align: left;
-      flex: 1;
-    }
-    
-    .table.table-striped td:last-child {
-      border-bottom: none;
-    }
-    
-    .table.table-striped td[data-label="ID"] {
-      font-weight: bold;
-      color: #0077b6;
-    }
-    
-    .table.table-striped td[data-label="Fecha"] {
-      white-space: normal;
-      font-size: 0.9em;
-    }
-    
-    .table.table-striped td[data-label="IP"] {
-      font-family: monospace;
-      font-size: 0.85em;
-      color: #666;
-    }
-  }
-  
-  .no-data {
-    text-align: center;
-    padding: 30px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    color: #777;
-    margin: 20px auto;
-    max-width: 500px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  }
-  
+}
