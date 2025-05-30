@@ -107,13 +107,33 @@
                         </div>
                     </div>
                 </div>
-            
+                
+                <div class="payment-group">
+                    <div class="g-recaptcha" data-sitekey="<%= process.env.RECAPTCHA_SITE_KEY %>"></div>
+                </div>
+
                 <button type="submit" class="payment-btn">
                     Realizar Pago
                 </button>
             </form>
         </div>
     </section>
+
     <%- include('partials/footer') %>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        if(grecaptcha.getResponse().length === 0) {
+            e.preventDefault();
+            alert("Por favor, verifica que no eres un robot");
+        }
+    });
+
+    // Función callback para habilitar el botón
+    function enableSubmit() {
+        document.getElementById('paymentSubmitBtn').disabled = false;
+    }
+</script>
 </body>
 </html>

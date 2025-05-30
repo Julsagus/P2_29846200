@@ -28,7 +28,11 @@
                         <label for="comment">Comentario:</label><br>
                         <textarea id="comment" name="comment" required></textarea>
                     </div>
-            
+                    
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="<%= process.env.RECAPTCHA_SITE_KEY %>"></div>
+                    </div>
+
                     <button type="submit" id="form-btn" class="btn">Enviar</button>
                 </form>
 
@@ -45,5 +49,21 @@
     </section>
 
     <%- include('partials/footer') %>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        if(grecaptcha.getResponse().length === 0) {
+            e.preventDefault();
+            alert("Por favor, verifica que no eres un robot");
+        }
+    });
+
+    // Deshabilitar botón hasta que reCAPTCHA esté verificado
+    function enableSubmit() {
+        document.getElementById('submitBtn').disabled = false;
+    }
+</script>
 </body>
 </html>
