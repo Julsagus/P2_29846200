@@ -48,7 +48,7 @@ app.use((req, res, next) => {
         title: 'AquaClean - Soluciones de limpieza',
         description: 'Ofrecemos los mejores servicios de limpieza para tu hogar o negocio',
         image: '/public/images/logo.png',
-        url: process.env.BASE_URL || 'http://localhost:3000'
+        url: process.env.BASE_URL || 'https://p2-29846200-1qu7.onrender.com'
     };
     next();
 });
@@ -60,7 +60,7 @@ app.use('/', indexRouter);
 // Middleware de autenticación
 export function isAuthenticated(req: express.Request, res: express.Response, next: express.NextFunction) {
     if (req.isAuthenticated()) return next();
-    res.redirect('/admin');
+    res.redirect('/auth/login');
 }
 
 export default app;
