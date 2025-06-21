@@ -62,7 +62,7 @@ router.get('/auth/login', (req, res) => {
 router.post('/auth/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/admin',
-    failureRedirect: '/auth/login',
+    failureRedirect: '/admin',
     failureFlash: true
   })(req, res, next);
 });
@@ -74,7 +74,7 @@ router.get('/auth/google', passport.authenticate('google', {
 
 router.get('/auth/google/callback', passport.authenticate('google', {
     successRedirect: '/admin',
-    failureRedirect: '/auth/login'
+    failureRedirect: '/admin'
 }));
 
 // Logout
