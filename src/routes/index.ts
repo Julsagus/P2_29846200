@@ -2,10 +2,12 @@ import { Router } from 'express';
 const router = Router();
 import { ContactsController } from '../controllers/ContactsController';
 import { PaymentController } from '../controllers/PaymentController';
+import { isAuthenticated } from '../app';
+import passport from 'passport';
+const controllerContacts = new ContactsController();
+const controllerPayment = new PaymentController();
 
-const controlerContacts = new ContactsController();
-const controlerPayment = new PaymentController();
-
+// Rutas públicas
 router.get('/', (req, res) => {
     res.render('index');
 });
@@ -30,12 +32,65 @@ router.get('/send_payment', (req, res) => {
     res.render('send_payment');
 });
 
-router.post('/contact/add', controlerContacts.add.bind(controlerContacts));
+router.post('/contact/add', controllerContacts.add.bind(controllerContacts));
+router.post('/payment/add', controllerPayment.processPayment.bind(controllerPayment));
 
-router.get('/admin/contacts_list', controlerContacts.index.bind(controlerContacts));
+// Rutas protegidas
+router.get('/admin/contacts_list', isAuthenticated, controllerContacts.index.bind(controllerContacts));
+router.get('/admin/payments_list', isAuthenticated, controllerPayment.listPayments.bind(controllerPayment));
 
-router.post('/payment/add', controlerPayment.processPayment.bind(controlerPayment));
+declare global {
+  namespace Express {
+    interface Request {
+      flash(type: string, message?: string | string[]): string[];
+    }
+  }
+}
 
-router.get('/admin/payments_list', controlerPayment.listPayments.bind(controlerPayment));
+// Login
+router.get('/auth/login', (req, res) => {
+    res.render('login', { 
+        message: req.flash('error'),
+        title: 'Iniciar sesión - AquaClean',
+        og: {
+            title: 'Iniciar sesión - AquaClean',
+            description: 'Accede al panel de administración de AquaClean'
+        }
+    });
+});
+
+router.post('/auth/login', (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/admin',
+    failureRedirect: '/auth/login',
+    failureFlash: true
+  })(req, res, next);
+});
+
+// Login con Google (opcional)
+router.get('/auth/google', passport.authenticate('google', {
+    scope: ['profile', 'email']
+}));
+
+router.get('/auth/google/callback', passport.authenticate('google', {
+    successRedirect: '/admin',
+    failureRedirect: '/auth/login'
+}));
+
+// Logout
+router.get('/auth/logout', (req, res, next) => {
+    req.logout((err) => {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+});
+
+// Panel de administración
+router.get('/admin', isAuthenticated, (req, res) => {
+    res.render('dashboard', { 
+        user: req.user,
+        title: 'Panel de administración - AquaClean'
+    });
+});
 
 export default router;
