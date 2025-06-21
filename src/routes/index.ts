@@ -60,10 +60,16 @@ router.get('/auth/login', (req, res) => {
 });
 
 router.post('/auth/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/admin',
-    failureRedirect: '/admin',
-    failureFlash: true
+  passport.authenticate('local', (err: any, user: any, info: any) => {
+    if (err) return next(err);
+    if (!user) {
+      req.flash('error', info.message);
+      return res.redirect('/auth/login');
+    }
+    req.logIn(user, (err: any) => {
+      if (err) return next(err);
+      return res.redirect('/admin');
+    });
   })(req, res, next);
 });
 
