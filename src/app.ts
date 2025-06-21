@@ -60,7 +60,7 @@ app.use('/', indexRouter);
 // Middleware de autenticación
 export function isAuthenticated(req: express.Request, res: express.Response, next: express.NextFunction) {
     if (req.isAuthenticated()) return next();
-    res.redirect('/auth/login');
+    res.redirect('/admin');
 }
 
 export default app;
