@@ -7,6 +7,38 @@
   <link rel="stylesheet" href='/stylesheets/style.css'>
   <link rel="stylesheet" href='/stylesheets/payments_list.css'>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .search-container {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .search-container input[type="date"] {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .search-container button {
+      padding: 8px 16px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .search-container button:hover {
+      background-color: var(--secondary-color);
+    }
+    .no-results {
+      display: none;
+      text-align: center;
+      margin: 20px 0;
+      color: #dc3545;
+    }
+  </style>
 </head>
 <body>
 
@@ -14,9 +46,20 @@
   
   <h1>Pagos Recibidos</h1>
 
+  <!-- Contenedor de búsqueda -->
+  <div class="search-container">
+    <input type="date" id="searchDate" name="searchDate">
+    <button id="searchButton">Buscar por fecha</button>
+    <button id="resetButton">Mostrar todos</button>
+  </div>
+  
+  <div class="no-results" id="noResultsMessage">
+    <p>No se encontraron pagos para la fecha seleccionada.</p>
+  </div>
+
 <% if (payments.length > 0) { %>
   <div class="table-container">
-    <table class="payments-table">
+    <table class="payments-table" id="paymentsTable">
       <thead>
         <tr>
           <th>ID</th>
@@ -31,7 +74,7 @@
       </thead>
       <tbody>
         <% payments.forEach(payment => { %>
-          <tr>
+          <tr data-date="<%= new Date(payment.created_at).toISOString().split('T')[0] %>">
             <td data-label="ID"><%= payment.id %></td>
             <td data-label="Plan"><%= payment.plan %></td>
             <td data-label="Email"><%= payment.email %></td>
@@ -53,6 +96,60 @@
 
   <%- include('partials/footer') %>
 
-  <script src='/javascripts/script'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchButton = document.getElementById('searchButton');
+      const resetButton = document.getElementById('resetButton');
+      const searchDate = document.getElementById('searchDate');
+      const paymentsTable = document.getElementById('paymentsTable');
+      const noResultsMessage = document.getElementById('noResultsMessage');
+      const allRows = paymentsTable ? Array.from(paymentsTable.querySelectorAll('tbody tr')) : [];
+
+      // Función para buscar por fecha
+      function searchByDate() {
+        const selectedDate = searchDate.value;
+        let hasResults = false;
+
+        if (!selectedDate) {
+          alert('Por favor selecciona una fecha');
+          return;
+        }
+
+        allRows.forEach(row => {
+          const rowDate = row.getAttribute('data-date');
+          if (rowDate === selectedDate) {
+            row.style.display = '';
+            hasResults = true;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        noResultsMessage.style.display = hasResults ? 'none' : 'block';
+      }
+
+      // Función para resetear la búsqueda
+      function resetSearch() {
+        allRows.forEach(row => {
+          row.style.display = '';
+        });
+        searchDate.value = '';
+        noResultsMessage.style.display = 'none';
+      }
+
+      // Event listeners
+      if (searchButton) searchButton.addEventListener('click', searchByDate);
+      if (resetButton) resetButton.addEventListener('click', resetSearch);
+      
+      // Permitir búsqueda al presionar Enter
+      if (searchDate) {
+        searchDate.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            searchByDate();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

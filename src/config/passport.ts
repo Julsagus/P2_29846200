@@ -28,7 +28,8 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: process.env.NODE_ENV === 'production'
         ? 'https://tu-app.onrender.com/auth/google/callback'
-        : 'http://localhost:3000/auth/google/callback'
+        : 'http://localhost:3000/auth/google/callback',
+        proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
         try {

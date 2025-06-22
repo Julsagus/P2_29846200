@@ -1,4 +1,3 @@
-<!-- src/views/admin/contacts.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,6 +5,40 @@
   <title>Contactos Registrados</title>
   <link rel="stylesheet" href='/stylesheets/style.css'>
   <link rel="stylesheet" href='/stylesheets/contacts_list.css'>
+  <style>
+    .search-container {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      max-width: 500px;
+    }
+    .search-container input[type="text"] {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      flex-grow: 1;
+      font-family: inherit;
+    }
+    .search-container button {
+      padding: 8px 16px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .search-container button:hover {
+      background-color: var(--secondary-color);
+    }
+    .no-results {
+      display: none;
+      text-align: center;
+      margin: 20px 0;
+      color: #dc3545;
+    }
+  </style>
 </head>
 <body>
 
@@ -13,9 +46,20 @@
 
   <h1>Contactos Registrados</h1>
 
+  <!-- Contenedor de búsqueda -->
+  <div class="search-container">
+    <input type="text" id="searchName" name="searchName" placeholder="Buscar por nombre...">
+    <button id="searchButton">Buscar</button>
+    <button id="resetButton">Mostrar todos</button>
+  </div>
+  
+  <div class="no-results" id="noResultsMessage">
+    <p>No se encontraron contactos con ese nombre.</p>
+  </div>
+
 <% if (contacts.length > 0) { %>
   <div class="table-container">
-    <table class="contacts-table">
+    <table class="contacts-table" id="contactsTable">
       <thead>
         <tr>
           <th>ID</th>
@@ -29,9 +73,9 @@
       </thead>
       <tbody>
         <% contacts.forEach(contact => { %>
-          <tr>
+          <tr data-name="<%= contact.name.toLowerCase() %>">
             <td data-label="ID"><%= contact.id %></td>
-            <td data-label="Nombre"><%= contact.name %></td>
+            <td data-label="Nombre" class="name-cell"><%= contact.name %></td>
             <td data-label="Email"><%= contact.email %></td>
             <td data-label="Comentario" class="comment-cell"><%= contact.comment %></td>
             <td data-label="IP" class="ip-cell"><%= contact.ip_address %></td>
@@ -50,6 +94,60 @@
 
   <%- include('partials/footer') %>
 
-  <script src='/javascripts/script'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchButton = document.getElementById('searchButton');
+      const resetButton = document.getElementById('resetButton');
+      const searchInput = document.getElementById('searchName');
+      const contactsTable = document.getElementById('contactsTable');
+      const noResultsMessage = document.getElementById('noResultsMessage');
+      const allRows = contactsTable ? Array.from(contactsTable.querySelectorAll('tbody tr')) : [];
+
+      // Función para buscar por nombre
+      function searchByName() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        let hasResults = false;
+
+        if (!searchTerm) {
+          alert('Por favor ingresa un nombre para buscar');
+          return;
+        }
+
+        allRows.forEach(row => {
+          const contactName = row.getAttribute('data-name');
+          if (contactName.includes(searchTerm)) {
+            row.style.display = '';
+            hasResults = true;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        noResultsMessage.style.display = hasResults ? 'none' : 'block';
+      }
+
+      // Función para resetear la búsqueda
+      function resetSearch() {
+        allRows.forEach(row => {
+          row.style.display = '';
+        });
+        searchInput.value = '';
+        noResultsMessage.style.display = 'none';
+      }
+
+      // Event listeners
+      if (searchButton) searchButton.addEventListener('click', searchByName);
+      if (resetButton) resetButton.addEventListener('click', resetSearch);
+      
+      // Permitir búsqueda al presionar Enter
+      if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            searchByName();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
