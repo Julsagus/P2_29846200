@@ -5,6 +5,12 @@ import { UserModel } from '../models/userModel';
 
 const userModel = new UserModel();
 
+
+//Credenciales para el administrador
+//Usuario admin
+//Contraseña admin123
+
+
 // Estrategia local
 passport.use(new LocalStrategy(
     async (username, password, done) => {
