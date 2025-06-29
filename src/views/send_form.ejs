@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= locale %>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/confirm.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-  <title>¡Gracias por contactarnos!</title>
+  <title><%= __('send_form.title') %></title>
 </head>
 <body>
 
@@ -20,11 +20,11 @@
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
         </div>
-        <h1 class="confirmation-title">¡Mensaje Enviado!</h1>
+        <h1 class="confirmation-title"><%= __('send_form.sent') %></h1>
         <p class="confirmation-message">
-          Gracias por contactarnos. Hemos recibido tu mensaje correctamente y nos pondremos en contacto contigo muy pronto.
+          <%= __('send_form.message') %>
         </p>
-        <a href="/" class="btn">Volver al Inicio</a>
+        <a href="/" class="btn"><%= __('send_form.back_home') %></a>
       </div>
     </section>
   </div>

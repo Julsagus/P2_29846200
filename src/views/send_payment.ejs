@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= locale %>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/confirm.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-  <title>¡Pago Realizado!</title>
+  <title><%= __('send_payment.title') %></title>
 </head>
 <body>
 
@@ -20,11 +20,11 @@
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
         </div>
-        <h1 class="confirmation-title">¡Su pago ha sido procesado satisfactioriamente!</h1>
+        <h1 class="confirmation-title"><%= __('send_payment.success') %></h1>
         <p class="confirmation-message">
-          Gracias por preferirnos. Hemos recibido tu pago correctamente y nos pondremos en contacto contigo en unos momentos.
+          <%= __('send_payment.message') %>
         </p>
-        <a href="/" class="btn">Volver al Inicio</a>
+        <a href="/" class="btn"><%= __('send_payment.back_home') %></a>
       </div>
     </section>
   </div>

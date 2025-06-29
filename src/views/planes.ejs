@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= locale %>">
 <head>
     <title>AquaClean | Nuestros Planes</title>
     <%- include('partials/head') %>
@@ -12,34 +12,34 @@
 
     <section id="planes" class="plans">
         <div class="container">
-            <h2>Nuestros Planes de Mantenimiento</h2>
+            <h2><%= __('planes.title') %></h2>
             <p class="subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--text-light);">
-                Elige el plan que mejor se adapte a tus necesidades y disfruta de tu piscina o spa sin preocupaciones
+                <%= __('planes.subtitle') %>
             </p>
             
             <div class="plans-grid">
                 <!-- Plan 1 -->
                 <div class="plan-card">
-                    <div class="plan-recommended">RECOMENDADO</div>
+                    <div class="plan-recommended"><%= __('planes.recommended') %></div>
                     <div class="plan-header">
-                        <h3 class="plan-title">Mantenimiento Total</h3>
+                        <h3 class="plan-title"><%= __('planes.plan1.title') %></h3>
                         <div class="plan-price">$299<span>/mes</span></div>
-                        <p>Todos los servicios esenciales + regalo</p>
+                        <p><%= __('planes.plan1.desc') %></p>
                     </div>
                     <div class="plan-body">
                         <ul class="plan-features">
-                            <li>Limpieza y tratamiento químico semanal</li>
-                            <li>Reparaciones básicas incluidas</li>
-                            <li>Ajuste de sistemas de climatización</li>
-                            <li>Asesoría 24/7 para emergencias</li>
+                            <li><%= __('planes.plan1.feature1') %></li>
+                            <li><%= __('planes.plan1.feature2') %></li>
+                            <li><%= __('planes.plan1.feature3') %></li>
+                            <li><%= __('planes.plan1.feature4') %></li>
                         </ul>
                         
                         <div class="plan-bonus">
                             <i class="fas fa-gift"></i>
-                            <strong>REGALO:</strong> Mantenimiento preventivo GRATIS por 1 mes (1 visita técnica semanal)
+                            <strong><%= __('planes.gift') %></strong> <%= __('planes.plan1.gift') %>
                         </div>
                         
-                        <a href="/form_pay" class="btn plan-btn">Contratar</a>
+                        <a href="/form_pay" class="btn plan-btn"><%= __('planes.hire') %></a>
                     </div>
                 </div>
                 
@@ -93,8 +93,8 @@
             </div>
             
             <div style="text-align: center; margin-top: 50px;">
-                <p style="color: var(--text-light); margin-bottom: 20px;">¿Necesitas algo más personalizado?</p>
-                <a href="/contact" class="btn" style="background-color: var(--dark-color);">Solicitar Plan Personalizado</a>
+                <p style="color: var(--text-light); margin-bottom: 20px;"><%= __('planes.custom') %></p>
+                <a href="/contact" class="btn" style="background-color: var(--dark-color);"><%= __('planes.request_custom') %></a>
             </div>
         </div>
     </section>

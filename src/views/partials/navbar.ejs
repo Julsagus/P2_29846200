@@ -7,12 +7,18 @@
             <span></span>
         </div>
         <ul class="nav-list">
-            <li><a href="/#inicio">Inicio</a></li>
-            <li><a href="/#servicios">Servicios</a></li>
-            <li><a href="/#beneficios">Beneficios</a></li>
-            <li><a href="/#galeria">Galería</a></li>
-            <li><a href="/planes">Planes</a></li>
-            <li><a href="/contact">Contacto</a></li>
+            <li><a href="/#inicio"><%= __('navbar.home') %></a></li>
+            <li><a href="/#servicios"><%= __('navbar.services') %></a></li>
+            <li><a href="/#beneficios"><%= __('navbar.benefits') %></a></li>
+            <li><a href="/#galeria"><%= __('navbar.gallery') %></a></li>
+            <li><a href="/planes"><%= __('navbar.plans') %></a></li>
+            <li><a href="/contact"><%= __('navbar.contact') %></a></li>
         </ul>
+        <form id="lang-form" action="/lang" method="POST" style="display:inline;">
+            <select name="locale" onchange="document.getElementById('lang-form').submit()" style="margin-left:15px;">
+                <option value="es" <%= locale === 'es' ? 'selected' : '' %>>ES</option>
+                <option value="en" <%= locale === 'en' ? 'selected' : '' %>>EN</option>
+            </select>
+        </form>
     </div>
 </nav>

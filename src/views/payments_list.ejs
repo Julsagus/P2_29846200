@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= locale %>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagos Recibidos</title>
+  <title><%= __('payments_list.title') %></title>
   <link rel="stylesheet" href='/stylesheets/style.css'>
   <link rel="stylesheet" href='/stylesheets/payments_list.css'>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -44,17 +44,17 @@
 
   <%- include('partials/navbar') %>
   
-  <h1>Pagos Recibidos</h1>
+  <h1><%= __('payments_list.title') %></h1>
 
   <!-- Contenedor de búsqueda -->
   <div class="search-container">
     <input type="date" id="searchDate" name="searchDate">
-    <button id="searchButton">Buscar por fecha</button>
-    <button id="resetButton">Mostrar todos</button>
+    <button id="searchButton"><%= __('payments_list.search_by_date') %></button>
+    <button id="resetButton"><%= __('payments_list.show_all') %></button>
   </div>
   
   <div class="no-results" id="noResultsMessage">
-    <p>No se encontraron pagos para la fecha seleccionada.</p>
+    <p><%= __('payments_list.no_results') %></p>
   </div>
 
 <% if (payments.length > 0) { %>
@@ -62,14 +62,14 @@
     <table class="payments-table" id="paymentsTable">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Plan</th>
-          <th>Email</th>
-          <th>Titular</th>
-          <th>Monto</th>
-          <th>Moneda</th>
-          <th>Fecha</th>
-          <th>IP</th>
+          <th><%= __('payments_list.id') %></th>
+          <th><%= __('payments_list.plan') %></th>
+          <th><%= __('payments_list.email') %></th>
+          <th><%= __('payments_list.cardholder') %></th>
+          <th><%= __('payments_list.amount') %></th>
+          <th><%= __('payments_list.currency') %></th>
+          <th><%= __('payments_list.date') %></th>
+          <th><%= __('payments_list.ip') %></th>
         </tr>
       </thead>
       <tbody>
@@ -81,7 +81,21 @@
             <td data-label="Titular"><%= payment.cardholder %></td>
             <td data-label="Monto" class="amount-cell"><%= payment.amount.toFixed(2) %></td>
             <td data-label="Moneda"><%= payment.currency %></td>
-            <td data-label="Fecha" class="date-cell"><%= new Date(payment.created_at).toLocaleString('es-ES') %></td>
+            <td data-label="Fecha" class="date-cell">
+              <% 
+                const dateObj = new Date(payment.created_at);
+                const day = String(dateObj.getDate()).padStart(2, '0');
+                const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+                const year = dateObj.getFullYear();
+                let formattedDate;
+                if (locale === 'en') {
+                  formattedDate = `${month}/${day}/${year}`;
+                } else {
+                  formattedDate = `${day}/${month}/${year}`;
+                }
+              %>
+              <%= formattedDate %>
+            </td>
             <td data-label="IP" class="ip-cell"><%= payment.ip_address %></td>
           </tr>
         <% }); %>
@@ -90,7 +104,7 @@
   </div>
 <% } else { %>
   <div class="no-payments">
-    <p>No hay pagos registrados aún.</p>
+    <p><%= __('payments_list.no_payments') %></p>
   </div>
 <% } %>
 
@@ -111,7 +125,7 @@
         let hasResults = false;
 
         if (!selectedDate) {
-          alert('Por favor selecciona una fecha');
+          alert("<%= __('payments_list.select_date') %>");
           return;
         }
 

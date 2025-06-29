@@ -1,0 +1,181 @@
+{
+  "planes": {
+    "title": "Nuestros Planes de Mantenimiento",
+    "subtitle": "Elige el plan que mejor se adapte a tus necesidades y disfruta de tu piscina o spa sin preocupaciones",
+    "recommended": "RECOMENDADO",
+    "hire": "Contratar",
+    "custom": "¿Necesitas algo más personalizado?",
+    "request_custom": "Solicitar Plan Personalizado",
+    "gift": "REGALO:",
+    "plan1": {
+      "title": "Mantenimiento Total",
+      "desc": "Todos los servicios esenciales + regalo",
+      "feature1": "Limpieza y tratamiento químico semanal",
+      "feature2": "Reparaciones básicas incluidas",
+      "feature3": "Ajuste de sistemas de climatización",
+      "feature4": "Asesoría 24/7 para emergencias",
+      "gift": "Mantenimiento preventivo GRATIS por 1 mes (1 visita técnica semanal)"
+    },
+    "plan2": {
+      "title": "Combo Especial",
+      "desc": "Elige 2 servicios + preventivo gratis",
+      "feature1": "<strong>Elige 2 servicios:</strong>",
+      "feature2": "Limpieza + Reparaciones",
+      "feature3": "Limpieza + Climatización",
+      "feature4": "Reparaciones + Climatización",
+      "gift": "Mantenimiento preventivo GRATIS por 15 días (1 visita técnica semanal)",
+      "customize": "Personalizar"
+    },
+    "plan3": {
+      "title": "Básico + Preventivo",
+      "desc": "Servicio específico + regalo",
+      "feature1": "<strong>Elige 1 servicio:</strong>",
+      "feature2": "Limpieza y tratamiento",
+      "feature3": "Reparaciones básicas",
+      "feature4": "Climatización",
+      "gift": "Mantenimiento preventivo GRATIS por 15 días (1 visita técnica semanal)",
+      "choose": "Elegir Servicio"
+    }
+  },
+  "payments_list": {
+    "title": "Pagos Recibidos",
+    "search_by_date": "Buscar por fecha",
+    "show_all": "Mostrar todos",
+    "no_results": "No se encontraron pagos para la fecha seleccionada.",
+    "id": "ID",
+    "plan": "Plan",
+    "email": "Email",
+    "cardholder": "Titular",
+    "amount": "Monto",
+    "currency": "Moneda",
+    "date": "Fecha",
+    "ip": "IP",
+    "no_payments": "No hay pagos registrados aún.",
+    "select_date": "Por favor selecciona una fecha"
+  },
+  "send_form": {
+    "title": "¡Gracias por contactarnos!",
+    "sent": "¡Mensaje Enviado!",
+    "message": "Gracias por contactarnos. Hemos recibido tu mensaje correctamente y nos pondremos en contacto contigo muy pronto.",
+    "back_home": "Volver al Inicio"
+  },
+  "send_payment": {
+    "title": "¡Pago Realizado!",
+    "success": "¡Su pago ha sido procesado satisfactioriamente!",
+    "message": "Gracias por preferirnos. Hemos recibido tu pago correctamente y nos pondremos en contacto contigo en unos momentos.",
+    "back_home": "Volver al Inicio"
+  },
+  "dashboard": {
+    "title": "Panel de administración",
+    "logout": "Cerrar sesión",
+    "contacts": "Contactos",
+    "payments": "Pagos",
+    "view_all": "Ver todos"
+  },
+  "form_pay": {
+    "title": "Formulario de pago",
+    "secure_payment": "Pago Seguro",
+    "select_plan": "Selecciona tu plan",
+    "choose_plan": "Elige un plan",
+    "plan1": "Mantenimiento Total - $299/mes",
+    "plan2": "Combo Especial - $199/mes",
+    "plan3": "Básico + Preventivo - $129/mes",
+    "email": "Correo electrónico",
+    "cardholder": "Nombre del titular",
+    "cardnumber": "Número de tarjeta",
+    "expiration": "Fecha de expiración",
+    "amount": "Monto a cancelar",
+    "currency": "Moneda",
+    "pay": "Realizar Pago",
+    "recaptcha_alert": "Por favor, verifica que no eres un robot"
+  },
+  "index": {
+    "meta_title": "Mantenimiento de Piscinas y Spa",
+    "hero_title": "Mantenimiento Profesional de Piscinas y Spa",
+    "hero_subtitle": "Disfruta de tu piscina todo el año con nuestros servicios especializados",
+    "hero_cta1": "¡Solicita un diagnóstico gratuito!",
+    "hero_cta2": "¡Conoce nuestros planes!",
+    "services_title": "Nuestros Servicios",
+    "services": [
+      {
+        "title": "Limpieza y Tratamiento",
+        "desc": "Mantenimiento químico del agua, limpieza de fondos y paredes, control de pH y cloro."
+      },
+      {
+        "title": "Reparaciones",
+        "desc": "Reparación de filtros, bombas, fugas y problemas eléctricos en sistemas de piscinas."
+      },
+      {
+        "title": "Climatización",
+        "desc": "Instalación y mantenimiento de sistemas de calefacción para spas y piscinas."
+      },
+      {
+        "title": "Mantenimiento Preventivo",
+        "desc": "Programas de mantenimiento periódico para evitar problemas costosos."
+      }
+    ],
+    "benefits_title": "¿Por qué elegirnos?",
+    "benefits": [
+      "Expertos certificados en tratamiento de agua",
+      "Productos de calidad que no dañan tu piel ni el medio ambiente",
+      "Precios competitivos y paquetes personalizados",
+      "Respuesta rápida ante emergencias"
+    ],
+    "gallery_title": "Nuestro Trabajo"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "login_btn": "Ingresar",
+    "google_btn": "Iniciar con Google",
+    "only_admins": "Solo para administradores"
+  },
+  "footer": {
+    "slogan": "Expertos en mantenimiento de piscinas y spa",
+    "quick_links": "Enlaces Rápidos",
+    "home": "Inicio",
+    "services": "Servicios",
+    "plans": "Planes",
+    "contact": "Contacto",
+    "hours_title": "Horario",
+    "hours_week": "Lunes - Viernes: 8:00 am - 6:00 pm",
+    "hours_sat": "Sábado: 9:00 am - 2:00 pm",
+    "rights": "Todos los derechos reservados.",
+    "admin_access": "Acceder como administrador"
+  },
+  "navbar": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "benefits": "Beneficios",
+    "gallery": "Galería",
+    "plans": "Planes",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "title": "Contacto",
+    "contact_us": "Contáctanos",
+    "email": "Correo electrónico:",
+    "name": "Nombres:",
+    "comment": "Comentario:",
+    "send": "Enviar",
+    "social_title": "Encuéntranos en nuestras redes sociales",
+    "recaptcha_alert": "Por favor, verifica que no eres un robot"
+  },
+  "contacts_list": {
+    "title": "Contactos Registrados",
+    "search_placeholder": "Buscar por nombre...",
+    "search_btn": "Buscar",
+    "show_all": "Mostrar todos",
+    "no_results": "No se encontraron contactos con ese nombre.",
+    "id": "ID",
+    "name": "Nombre",
+    "email": "Email",
+    "comment": "Comentario",
+    "ip": "IP",
+    "country": "País",
+    "date": "Fecha",
+    "no_contacts": "No hay contactos registrados aún.",
+    "enter_name": "Por favor ingresa un nombre para buscar"
+  }
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= locale %>">
 <head>
-    <title>AquaClean | Mantenimiento de Piscinas y Spa</title>
+    <title>AquaClean | <%= __('index.meta_title') %></title>
     <%- include('partials/head') %>
 </head>
 <body>
@@ -13,37 +13,37 @@
     <section id="inicio" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Mantenimiento Profesional de Piscinas y Spa</h1>
-                <p>Disfruta de tu piscina todo el año con nuestros servicios especializados</p>
-                <a href="/contact" class="btn">¡Solicita un diagnóstico gratuito!</a>
-                <a href="/planes" class="btn">¡Conoce nuestros planes!</a><br>
+                <h1><%= __('index.hero_title') %></h1>
+                <p><%= __('index.hero_subtitle') %></p>
+                <a href="/contact" class="btn"><%= __('index.hero_cta1') %></a>
+                <a href="/planes" class="btn"><%= __('index.hero_cta2') %></a><br>
             </div>
         </div>
     </section>
 
     <section id="servicios" class="services">
         <div class="container">
-            <h2>Nuestros Servicios</h2>
+            <h2><%= __('index.services_title') %></h2>
             <div class="services-grid">
                 <div class="service-card">
                     <i class="fas fa-water"></i>
-                    <h3>Limpieza y Tratamiento</h3>
-                    <p>Mantenimiento químico del agua, limpieza de fondos y paredes, control de pH y cloro.</p>
+                    <h3><%= __('index.services.0.title') %></h3>
+                    <p><%= __('index.services.0.desc') %></p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-tools"></i>
-                    <h3>Reparaciones</h3>
-                    <p>Reparación de filtros, bombas, fugas y problemas eléctricos en sistemas de piscinas.</p>
+                    <h3><%= __('index.services.1.title') %></h3>
+                    <p><%= __('index.services.1.desc') %></p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-thermometer-half"></i>
-                    <h3>Climatización</h3>
-                    <p>Instalación y mantenimiento de sistemas de calefacción para spas y piscinas.</p>
+                    <h3><%= __('index.services.2.title') %></h3>
+                    <p><%= __('index.services.2.desc') %></p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-shield-alt"></i>
-                    <h3>Mantenimiento Preventivo</h3>
-                    <p>Programas de mantenimiento periódico para evitar problemas costosos.</p>
+                    <h3><%= __('index.services.3.title') %></h3>
+                    <p><%= __('index.services.3.desc') %></p>
                 </div>
             </div>
         </div>
@@ -52,23 +52,23 @@
     <section id="beneficios" class="benefits">
         <div class="container">
             <div class="benefits-content">
-                <h2>¿Por qué elegirnos?</h2>
+                <h2><%= __('index.benefits_title') %></h2>
                 <ul class="benefits-list">
                     <li>
                         <i class="fas fa-check-circle"></i>
-                        <span>Expertos certificados en tratamiento de agua</span>
+                        <span><%= __('index.benefits.0') %></span>
                     </li>
                     <li>
                         <i class="fas fa-check-circle"></i>
-                        <span>Productos de calidad que no dañan tu piel ni el medio ambiente</span>
+                        <span><%= __('index.benefits.1') %></span>
                     </li>
                     <li>
                         <i class="fas fa-check-circle"></i>
-                        <span>Precios competitivos y paquetes personalizados</span>
+                        <span><%= __('index.benefits.2') %></span>
                     </li>
                     <li>
                         <i class="fas fa-check-circle"></i>
-                        <span>Respuesta rápida ante emergencias</span>
+                        <span><%= __('index.benefits.3') %></span>
                     </li>
                 </ul>
             </div>
@@ -80,7 +80,7 @@
 
     <section id="galeria" class="gallery">
         <div class="container">
-            <h2>Nuestro Trabajo</h2>
+            <h2><%= __('index.gallery_title') %></h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://s1.eestatic.com/2022/07/14/como/687691935_225819252_1706x960.jpg" alt="Piscina limpia">

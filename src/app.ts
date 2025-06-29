@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import session from 'express-session';
 import passport from 'passport';
 import flash from 'connect-flash';
+import i18n from 'i18n';
+import cookieParser from 'cookie-parser';
 
 import './config/passport';
 
@@ -20,7 +22,7 @@ app.use(session({
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
-        maxAge: 15 * 60 * 1000 // 15 minutos de inactividad
+        maxAge: 15 * 60 * 1000
     }
 }));
 
@@ -29,6 +31,33 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(flash());
+
+app.use(cookieParser()); // <-- Agrega esto antes de i18n.init
+
+// Configuración de i18n
+i18n.configure({
+    locales: ['es', 'en'],
+    directory: path.join(__dirname, './locale'),
+    defaultLocale: 'es',
+    objectNotation: true,
+    autoReload: true,
+    updateFiles: false,
+    syncFiles: false,
+    cookie: 'locale'
+});
+
+app.use(i18n.init);
+
+// Middleware para pasar el idioma actual a las vistas
+app.use((req, res, next) => {
+    res.locals.locale = req.getLocale();
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log('Idioma actual:', req.getLocale(), 'Cookie:', req.cookies?.locale);
+    next();
+});
 
 // Motor de vistas
 app.set('views', path.join(__dirname, 'views'));

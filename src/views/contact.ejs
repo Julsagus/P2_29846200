@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= locale %>">
 <head>
-    <title>AquaClean | Contacto</title>
+    <title>AquaClean | <%= __('contact.title') %></title>
     <%- include('partials/head') %>
 </head>
 <body>
@@ -12,20 +12,20 @@
         <div class="container">
             <div class="contact-content">
                 <form class="contact-form" action="/contact/add" method="POST">
-                    <h2>Contáctanos</h2>
+                    <h2><%= __('contact.contact_us') %></h2>
                     
                     <div class="form-group">
-                        <label for="email">Correo electrónico:</label><br>
+                        <label for="email"><%= __('contact.email') %></label><br>
                         <input type="email" id="email" name="email" required>
                     </div>
             
                     <div class="form-group">
-                        <label for="name">Nombres:</label><br>
+                        <label for="name"><%= __('contact.name') %></label><br>
                         <input type="text" id="name" name="name" required>
                     </div>
             
                     <div class="form-group">
-                        <label for="comment">Comentario:</label><br>
+                        <label for="comment"><%= __('contact.comment') %></label><br>
                         <textarea id="comment" name="comment" required></textarea>
                     </div>
                     
@@ -33,10 +33,10 @@
                         <div class="g-recaptcha" data-sitekey="<%= process.env.RECAPTCHA_SITE_KEY %>"></div>
                     </div>
 
-                    <button type="submit" id="form-btn" class="btn">Enviar</button>
+                    <button type="submit" id="form-btn" class="btn"><%= __('contact.send') %></button>
                 </form>
 
-                <h2>Encuéntranos en nuestras redes sociales</h2>
+                <h2><%= __('contact.social_title') %></h2>
 
                 <div class="contact-info">
                     <div class="social-links">
@@ -56,7 +56,7 @@
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         if(grecaptcha.getResponse().length === 0) {
             e.preventDefault();
-            alert("Por favor, verifica que no eres un robot");
+            alert("<%= __('contact.recaptcha_alert') %>");
         }
     });
 

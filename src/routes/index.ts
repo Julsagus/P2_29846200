@@ -99,4 +99,24 @@ router.get('/admin', isAuthenticated, (req, res) => {
     });
 });
 
+router.post('/lang', (req, res) => {
+    const locale = req.body.locale;
+    if (locale && ['es', 'en'].includes(locale)) {
+        res.cookie('locale', locale, { maxAge: 900000 }); // quita httpOnly
+        req.setLocale(locale);
+        req.session.locale = locale;
+    }
+    // Redirige a la página anterior o al inicio si no hay referer
+    const backURL = req.header('Referer') || '/';
+    res.redirect(backURL);
+});
+
+import 'express-session';
+
+declare module 'express-session' {
+  interface SessionData {
+    locale?: string;
+  }
+}
+
 export default router;

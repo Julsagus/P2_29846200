@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= locale %>">
 <head>
   <meta charset="UTF-8">
-  <title>Contactos Registrados</title>
+  <title><%= __('contacts_list.title') %></title>
   <link rel="stylesheet" href='/stylesheets/style.css'>
   <link rel="stylesheet" href='/stylesheets/contacts_list.css'>
   <style>
@@ -44,17 +44,17 @@
 
   <%- include('partials/navbar') %>
 
-  <h1>Contactos Registrados</h1>
+  <h1><%= __('contacts_list.title') %></h1>
 
   <!-- Contenedor de búsqueda -->
   <div class="search-container">
-    <input type="text" id="searchName" name="searchName" placeholder="Buscar por nombre...">
-    <button id="searchButton">Buscar</button>
-    <button id="resetButton">Mostrar todos</button>
+    <input type="text" id="searchName" name="searchName" placeholder="<%= __('contacts_list.search_placeholder') %>">
+    <button id="searchButton"><%= __('contacts_list.search_btn') %></button>
+    <button id="resetButton"><%= __('contacts_list.show_all') %></button>
   </div>
   
   <div class="no-results" id="noResultsMessage">
-    <p>No se encontraron contactos con ese nombre.</p>
+    <p><%= __('contacts_list.no_results') %></p>
   </div>
 
 <% if (contacts.length > 0) { %>
@@ -62,13 +62,13 @@
     <table class="contacts-table" id="contactsTable">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Comentario</th>
-          <th>IP</th>
-          <th>País</th>
-          <th>Fecha</th>
+          <th><%= __('contacts_list.id') %></th>
+          <th><%= __('contacts_list.name') %></th>
+          <th><%= __('contacts_list.email') %></th>
+          <th><%= __('contacts_list.comment') %></th>
+          <th><%= __('contacts_list.ip') %></th>
+          <th><%= __('contacts_list.country') %></th>
+          <th><%= __('contacts_list.date') %></th>
         </tr>
       </thead>
       <tbody>
@@ -80,7 +80,21 @@
             <td data-label="Comentario" class="comment-cell"><%= contact.comment %></td>
             <td data-label="IP" class="ip-cell"><%= contact.ip_address %></td>
             <td data-label="País" class="country-cell"><%= contact.country || 'Desconocido' %></td>
-            <td data-label="Fecha" class="date-cell"><%= new Date(contact.created_at).toLocaleString() %></td>
+            <td data-label="Fecha" class="date-cell">
+              <% 
+                const dateObj = new Date(contact.created_at);
+                const day = String(dateObj.getDate()).padStart(2, '0');
+                const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+                const year = dateObj.getFullYear();
+                let formattedDate;
+                if (locale === 'en') {
+                  formattedDate = `${month}/${day}/${year}`;
+                } else {
+                  formattedDate = `${day}/${month}/${year}`;
+                }
+              %>
+              <%= formattedDate %>
+            </td>
           </tr>
         <% }); %>
       </tbody>
@@ -88,7 +102,7 @@
   </div>
 <% } else { %>
   <div class="no-data">
-    <p>No hay contactos registrados aún.</p>
+    <p><%= __('contacts_list.no_contacts') %></p>
   </div>
 <% } %>
 
@@ -109,7 +123,7 @@
         let hasResults = false;
 
         if (!searchTerm) {
-          alert('Por favor ingresa un nombre para buscar');
+          alert("<%= __('contacts_list.enter_name') %>");
           return;
         }
 

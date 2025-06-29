@@ -3,28 +3,27 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <a href="#inicio" class="logo">Aqua<span>Clean</span></a>
-                <p>Expertos en mantenimiento de piscinas y spa</p>
+                <p><%= __('footer.slogan') %></p>
             </div>
             <div class="footer-links">
-                <h3>Enlaces Rápidos</h3>
+                <h3><%= __('footer.quick_links') %></h3>
                 <ul>
-                    <li><a href="/#inicio">Inicio</a></li>
-                    <li><a href="/#servicios">Servicios</a></li>
-                    <li><a href="/planes">Planes</a></li>
-                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="/#inicio"><%= __('footer.home') %></a></li>
+                    <li><a href="/#servicios"><%= __('footer.services') %></a></li>
+                    <li><a href="/planes"><%= __('footer.plans') %></a></li>
+                    <li><a href="/contact"><%= __('footer.contact') %></a></li>
                 </ul>
             </div>
             <div class="footer-hours">
-                <h3>Horario</h3>
-                <p>Lunes - Viernes: 8:00 am - 6:00 pm</p>
-                <p>Sábado: 9:00 am - 2:00 pm</p>
+                <h3><%= __('footer.hours_title') %></h3>
+                <p><%= __('footer.hours_week') %></p>
+                <p><%= __('footer.hours_sat') %></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 AquaClean. Todos los derechos reservados.</p>
-            <p><a href="/auth/login">Acceder como administrador</a></p>
+            <p>&copy; 2025 AquaClean. <%= __('footer.rights') %></p>
+            <p><a href="/auth/login"><%= __('footer.admin_access') %></a></p>
         </div>
     </div>
 </footer>
-
 <script src="/javascripts/script.js"></script>

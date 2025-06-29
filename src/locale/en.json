@@ -1,0 +1,181 @@
+{
+  "planes": {
+    "title": "Our Maintenance Plans",
+    "subtitle": "Choose the plan that best suits your needs and enjoy your pool or spa worry-free",
+    "recommended": "RECOMMENDED",
+    "hire": "Hire",
+    "custom": "Need something more personalized?",
+    "request_custom": "Request Custom Plan",
+    "gift": "GIFT:",
+    "plan1": {
+      "title": "Total Maintenance",
+      "desc": "All essential services + gift",
+      "feature1": "Weekly cleaning and chemical treatment",
+      "feature2": "Basic repairs included",
+      "feature3": "Climate control system adjustment",
+      "feature4": "24/7 emergency advice",
+      "gift": "FREE preventive maintenance for 1 month (1 weekly technical visit)"
+    },
+    "plan2": {
+      "title": "Special Combo",
+      "desc": "Choose 2 services + free preventive maintenance",
+      "feature1": "<strong>Choose 2 services:</strong>",
+      "feature2": "Cleaning + Repairs",
+      "feature3": "Cleaning + Climate Control",
+      "feature4": "Repairs + Climate Control",
+      "gift": "FREE preventive maintenance for 15 days (1 weekly technical visit)",
+      "customize": "Customize"
+    },
+    "plan3": {
+      "title": "Basic + Preventive",
+      "desc": "Specific service + gift",
+      "feature1": "<strong>Choose 1 service:</strong>",
+      "feature2": "Cleaning and treatment",
+      "feature3": "Basic repairs",
+      "feature4": "Climate control",
+      "gift": "FREE preventive maintenance for 15 days (1 weekly technical visit)",
+      "choose": "Choose Service"
+    }
+  },
+  "payments_list": {
+    "title": "Payments Received",
+    "search_by_date": "Search by date",
+    "show_all": "Show all",
+    "no_results": "No payments found for the selected date.",
+    "id": "ID",
+    "plan": "Plan",
+    "email": "Email",
+    "cardholder": "Cardholder",
+    "amount": "Amount",
+    "currency": "Currency",
+    "date": "Date",
+    "ip": "IP",
+    "no_payments": "No payments registered yet.",
+    "select_date": "Please select a date"
+  },
+  "send_form": {
+    "title": "Thank you for contacting us!",
+    "sent": "Message Sent!",
+    "message": "Thank you for contacting us. We have received your message correctly and will get back to you very soon.",
+    "back_home": "Back to Home"
+  },
+  "send_payment": {
+    "title": "Payment Made!",
+    "success": "Your payment has been processed successfully!",
+    "message": "Thank you for choosing us. We have received your payment correctly and will contact you shortly.",
+    "back_home": "Back to Home"
+  },
+  "dashboard": {
+    "title": "Admin Panel",
+    "logout": "Log out",
+    "contacts": "Contacts",
+    "payments": "Payments",
+    "view_all": "View all"
+  },
+  "form_pay": {
+    "title": "Payment Form",
+    "secure_payment": "Secure Payment",
+    "select_plan": "Select your plan",
+    "choose_plan": "Choose a plan",
+    "plan1": "Total Maintenance - $299/month",
+    "plan2": "Special Combo - $199/month",
+    "plan3": "Basic + Preventive - $129/month",
+    "email": "Email",
+    "cardholder": "Cardholder Name",
+    "cardnumber": "Card Number",
+    "expiration": "Expiration Date",
+    "amount": "Amount to pay",
+    "currency": "Currency",
+    "pay": "Make Payment",
+    "recaptcha_alert": "Please verify that you are not a robot"
+  },
+  "index": {
+    "meta_title": "Pool and Spa Maintenance",
+    "hero_title": "Professional Pool and Spa Maintenance",
+    "hero_subtitle": "Enjoy your pool all year round with our specialized services",
+    "hero_cta1": "Request a free diagnosis!",
+    "hero_cta2": "Discover our plans!",
+    "services_title": "Our Services",
+    "services": [
+      {
+        "title": "Cleaning and Treatment",
+        "desc": "Chemical water maintenance, bottom and wall cleaning, pH and chlorine control."
+      },
+      {
+        "title": "Repairs",
+        "desc": "Repair of filters, pumps, leaks, and electrical problems in pool systems."
+      },
+      {
+        "title": "Climate Control",
+        "desc": "Installation and maintenance of heating systems for spas and pools."
+      },
+      {
+        "title": "Preventive Maintenance",
+        "desc": "Periodic maintenance programs to avoid costly problems."
+      }
+    ],
+    "benefits_title": "Why choose us?",
+    "benefits": [
+      "Certified experts in water treatment",
+      "Quality products that do not harm your skin or the environment",
+      "Competitive prices and customized packages",
+      "Fast response to emergencies"
+    ],
+    "gallery_title": "Our Work"
+  },
+  "login": {
+    "title": "Log in",
+    "username": "Username",
+    "password": "Password",
+    "login_btn": "Enter",
+    "google_btn": "Sign in with Google",
+    "only_admins": "Admins only"
+  },
+  "footer": {
+    "slogan": "Experts in pool and spa maintenance",
+    "quick_links": "Quick Links",
+    "home": "Home",
+    "services": "Services",
+    "plans": "Plans",
+    "contact": "Contact",
+    "hours_title": "Hours",
+    "hours_week": "Monday - Friday: 8:00 am - 6:00 pm",
+    "hours_sat": "Saturday: 9:00 am - 2:00 pm",
+    "rights": "All rights reserved.",
+    "admin_access": "Access as Administrator"
+  },
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "benefits": "Benefits",
+    "gallery": "Gallery",
+    "plans": "Plans",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Contact",
+    "contact_us": "Contact Us",
+    "email": "Email:",
+    "name": "Name:",
+    "comment": "Comment:",
+    "send": "Send",
+    "social_title": "Find us on our social networks",
+    "recaptcha_alert": "Please verify that you are not a robot"
+  },
+  "contacts_list": {
+    "title": "Registered Contacts",
+    "search_placeholder": "Search by name...",
+    "search_btn": "Search",
+    "show_all": "Show all",
+    "no_results": "No contacts found with that name.",
+    "id": "ID",
+    "name": "Name",
+    "email": "Email",
+    "comment": "Comment",
+    "ip": "IP",
+    "country": "Country",
+    "date": "Date",
+    "no_contacts": "No contacts registered yet.",
+    "enter_name": "Please enter a name to search"
+  }
+}
