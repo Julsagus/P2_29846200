@@ -37,7 +37,7 @@ app.use(cookieParser()); // <-- Agrega esto antes de i18n.init
 // Configuración de i18n
 i18n.configure({
     locales: ['es', 'en'],
-    directory: path.join(__dirname, './locale'),
+    directory: path.join(__dirname, '../src/locale'),
     defaultLocale: 'es',
     objectNotation: true,
     autoReload: true,
